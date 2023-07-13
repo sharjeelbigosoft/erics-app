@@ -38,7 +38,7 @@ export default function Services() {
           <textarea onChange={e=>{AC_.current=e.target.value;}}  className='border rounded-md w-full' rows={5}></textarea>
           <div>
             <input onClick={e=>{setTyre(tyre=>e.target.checked);}} type="checkbox" id="tyre" name="tyre"/>
-            <label htmlFor="tyre">Tire Change</label>
+            <label htmlFor="tyre">TYre Change</label>
           </div>
           <textarea onChange={e=>{tyre_.current=e.target.value;}}  className='border rounded-md w-full' rows={5}></textarea>
           <div>

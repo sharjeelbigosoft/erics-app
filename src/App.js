@@ -1,5 +1,6 @@
 import './App.css';
 import Appointment from './components/Appointment';
+import Contact from './components/Contact';
 import Place from './components/Place';
 import Services from './components/Services';
 import Time from './components/Time';
@@ -13,6 +14,7 @@ function App() {
       <Vehicle/>
       <Services/>
       <Appointment/>
+      <Contact/>
     </>
   );
 }
