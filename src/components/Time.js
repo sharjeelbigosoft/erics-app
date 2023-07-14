@@ -1,22 +1,26 @@
 import React from 'react'
+import Appointment from './Appointment';
 
-export default function Time() {
-    let dates=()=>{
-        let date=new Date();
-        let arr=[];
-        arr.push(date);
-        const month=date.getMonth();
-        console.log(month)
-        for(date; date.getMonth()===month; date.setDate(date.getDate() + 1)){
-            console.log(date);
-            arr.push(date);
-        }
-        return arr;
-    }
+export default function Time(props) {
+    // let dates=()=>{
+    //     let date=new Date();
+    //     let arr=[];
+    //     arr.push(date);
+    //     const month=date.getMonth();
+    //     console.log(month)
+    //     for(date; date.getMonth()===month; date.setDate(date.getDate() + 1)){
+    //         console.log(date);
+    //         arr.push(date);
+    //     }
+    //     return arr;
+    // }
     const [waiting, setWaiting]=React.useState();
     const [date, setDate]=React.useState();
+    const [next, setNext]=React.useState(false)
   return (
-    <div className='flex flex-col items-center'>
+    <>
+    {next?<Appointment time={props.time} waiting date/>:
+    <div className='flex flex-col items-center mt-20'>
         <div className='flex space-x-6'>
             <div>
                 <input onChange={e=>setWaiting(waiting=>e.target.value)} type="radio" id="wait" name="service" value="wait"/>
@@ -34,5 +38,8 @@ export default function Time() {
             </div>
         </div>
     </div>
+    }
+    <button onClick={()=>{waiting&&date?setNext(next=>true):setNext(next=>false)}}>Next</button>
+    </>
   )
 }
