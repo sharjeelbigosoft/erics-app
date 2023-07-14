@@ -30,7 +30,7 @@ export default function Place() {
         </div>
     </div>
     :
-    <Time place/>}
+    <Time place={place}/>}
     </>
   )
 }

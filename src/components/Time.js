@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Appointment from './Appointment';
 
 export default function Time(props) {
@@ -14,12 +14,15 @@ export default function Time(props) {
     //     }
     //     return arr;
     // }
-    const [waiting, setWaiting]=React.useState();
-    const [date, setDate]=React.useState();
+    const [waiting, setWaiting]=React.useState("select");
+    const [date, setDate]=React.useState(Date);
     const [next, setNext]=React.useState(false)
+    useEffect(()=>{
+        console.log("waiting: ", waiting, "Date: ", date)
+    }, [waiting, date])
   return (
     <>
-    {next?<Appointment time={props.time} waiting date/>:
+    {next?<Appointment place={props.place} date={date} waiting={waiting}/>:
     <div className='flex flex-col items-center mt-20'>
         <div className='flex space-x-6'>
             <div>
@@ -37,9 +40,9 @@ export default function Time(props) {
                 <label htmlFor="dateTime">Select Date and Time</label>
             </div>
         </div>
+        <button onClick={()=>{(waiting!=="select"&&date)?setNext(next=>true):setNext(next=>false)}}>Next</button>
     </div>
     }
-    <button onClick={()=>{waiting&&date?setNext(next=>true):setNext(next=>false)}}>Next</button>
     </>
   )
 }

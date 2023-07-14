@@ -33,6 +33,9 @@ export default function Vehicle(props) {
     const [Model, setModel]=React.useState("select");
 
     const [next, setNext]=React.useState(false)
+
+    // if(Year)
+
     useEffect(()=>{
         console.log("props.oil_:",props.oil_.current) 
         console.log("props.brake_:",props.brake_.current) 
@@ -51,7 +54,7 @@ export default function Vehicle(props) {
         <div className='flex justify-between'>
             <div className="w-[300px] flex flex-col justify-around">
                 <label htmlFor="year">Year</label>
-                <select className='border rounded-md px-[2rem] py-[0.5rem] ' onChange={e=>{console.log(e.target.value);setYear(e.target.value)}} name="year" id="year">
+                <select className='border rounded-md px-[2rem] py-[0.5rem] ' onChange={e=>{console.log(e.target.value);setYear(e.target.value);}} name="year" id="year">
                 <option value="select">Select Year</option>
                     {years.map((year, ind)=>{
                         return <option key={ind} value={year}>{year}</option>
@@ -78,7 +81,7 @@ export default function Vehicle(props) {
             </div>
         </div>
     </div>
-    <Services oil_ brake_ AC_ tyre_ steering_ maintenance_ engine_ inspection_ />
+    {/* <Services oil_ brake_ AC_ tyre_ steering_ maintenance_ engine_ inspection_ /> */}
     <button onClick={()=>{(Year&&Make&&Model)?<></>:<></>}} className='px-[2rem] bg-slate-600 text-white py-[0.2rem]'>Next</button>
     </>
     :void(0)}
